@@ -1,5 +1,4 @@
-// These code is get from https://raw.githubusercontent.com/Michaelangel007/buddhabrot/master/buddhabrot.cpp
-//
+
 
 #ifndef _WIN_GETTIMEOFDAY
 #define _WIN_GETTIMEOFDAY

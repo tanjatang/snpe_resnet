@@ -1,11 +1,4 @@
-/*
- * @Description: Object detection algorithm handler.
- * @version: 2.1
- * @Author: Ricardo Lu<shenglu1202@163.com>
- * @Date: 2022-05-17 20:27:51
- * @LastEditors: Ricardo Lu
- * @LastEditTime: 2023-02-24 15:14:36
- */
+
 
 #ifndef __resnet18S_IMPL_H__
 #define __resnet18S_IMPL_H__
@@ -60,40 +53,7 @@ public:
         return m_isInit;
     }
 
-    static std::vector<ObjectData> nms(std::vector<ObjectData> winList, const float& nms_thresh) {
-        if (winList.empty()) {
-            return winList;
-        }
-
-        std::sort(winList.begin(), winList.end(), [] (const ObjectData& left, const ObjectData& right) {
-            if (left.confidence > right.confidence) {
-                return true;
-            } else {
-                return false;
-            }
-        });
-
-        std::vector<bool> flag(winList.size(), false);
-        for (int i = 0; i < winList.size(); i++) {
-            if (flag[i]) {
-                continue;
-            }
-
-            for (int j = i + 1; j < winList.size(); j++) {
-                if (calcIoU(winList[i].bbox, winList[j].bbox) > nms_thresh) {
-                    flag[j] = true;
-                }
-            }
-        }
-
-        std::vector<ObjectData> ret;
-        for (int i = 0; i < winList.size(); i++) {
-            if (!flag[i])
-                ret.push_back(winList[i]);
-        }
-
-        return ret;
-    }
+    
 
 private:
     bool m_isInit = false;

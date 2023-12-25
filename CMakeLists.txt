@@ -1,4 +1,4 @@
-# create by Ricardo Lu in 05-17-2022
+
 
 cmake_minimum_required(VERSION 3.10)
 
@@ -21,11 +21,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
   set(SNPE_INCLUDE_DIR /opt/qcom/aistack/snpe/2.15.4.231013/include/SNPE/)
   set(SNPE_LIBRARY_DIR /opt/qcom/aistack/snpe/2.15.4.231013/lib/x86_64-linux-clang/)
   set(PTHREAD_DL_LIBS pthread dl)
-#   include_directories(
-#     # ${CMAKE_SOURCE_DIR}/3rd/spdlog/include
-#     # ${CMAKE_SOURCE_DIR}/3rd/spdlog/include/spdlog/
-#     ${JSONCPP_INCLUDE_DIRS}
-#   )
+
 endif()
 find_package(OpenCV REQUIRED)
 # if (CMAKE_SYSTEM_NAME MATCHES "Windows")
@@ -107,12 +103,9 @@ if(DUMP_LOG OR MULTI_LOG)
     endif()
 endif()
 
-# Compile YOLOv5s.so target
+
 add_subdirectory(resnet18)
 
 # Compile test program
 add_subdirectory(test/test_image)
-# add_subdirectory(test/test_video)
 
-# Compile standard algorithm module
-# add_subdirectory(alg/yolov5s)

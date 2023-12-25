@@ -1,5 +1,3 @@
-// These code is get from https://raw.githubusercontent.com/Michaelangel007/buddhabrot/master/buddhabrot.cpp
-//
 
 #if defined(WIN32) || defined(_WIN32)
 

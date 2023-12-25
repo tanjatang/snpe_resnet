@@ -1,11 +1,4 @@
-/*
- * @Description: Common header.
- * @version: 2.0
- * @Author: Ricardo Lu<shenglu1202@163.com>
- * @Date: 2022-07-09 13:07:37
- * @LastEditors: Ricardo Lu
- * @LastEditTime: 2023-02-24 15:12:34
- */
+
 #pragma once
 
 #include <algorithm>

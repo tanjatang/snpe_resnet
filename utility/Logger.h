@@ -1,11 +1,4 @@
-/*
- * @Description: Single Instance logger based on spdlog.
- * @version: 1.0
- * @Author: Ricardo Lu<shenglu1202@163.com>
- * @Date: 2021-09-11 20:05:38
- * @Last Editor: Ricardo Lu
- * @LastEditTime: 2022-07-09 08:22:06
- */
+
 #pragma once
 
 #include <iostream>

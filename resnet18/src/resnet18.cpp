@@ -1,11 +1,4 @@
-/*
- * @Description: Implementation of Face Detection algorithm APIs.
- * @version: 2.1
- * @Author: Ricardo Lu<shenglu1202@163.com>
- * @Date: 2022-05-17 20:26:56
- * @LastEditors: Ricardo Lu
- * @LastEditTime: 2022-07-12 08:24:29
- */
+
 
 #if defined(WIN32) || defined(_WIN32)
 #include <time.h>
@@ -69,25 +62,9 @@ bool ImageClassification::Detect(const cv::Mat& image, std::vector<float*> &resu
     }
 }
 
-bool ImageClassification::SetScoreThreshold(const float& conf_thresh, const float& nms_thresh)
-{
-    if (nullptr != impl) {
-        return static_cast<ImageClassificationImpl*>(impl)->SetScoreThresh(conf_thresh, nms_thresh);
-    } else {
-        LOG_ERROR("ImageClassification::SetScoreThreshold failed because incompleted initialization!");
-        return false;
-    }
-}
 
-bool ImageClassification::SetROI(const cv::Rect& roi)
-{
-    if (nullptr != impl) {
-        return static_cast<ImageClassificationImpl*>(impl)->SetROI(roi);
-    } else {
-        LOG_ERROR("ImageClassification::SetROI failed because incompleted initialization!");
-        return false;
-    }
-}
+
+
 
 bool ImageClassification::RegisterPreProcess(pre_process_t func)
 {

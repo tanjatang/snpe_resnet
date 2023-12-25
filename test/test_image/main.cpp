@@ -1,11 +1,4 @@
-/*
- * @Description: Test program of resnet18s. 
- * @version: 2.1
- * @Author: Ricardo Lu<shenglu1202@163.com>
- * @Date: 2022-05-18 16:51:10
- * @LastEditors: Ricardo Lu
- * @LastEditTime: 2023-03-04 03:49:27
- */
+
 
 #include <string>
 #include <vector>
@@ -62,24 +55,6 @@ static bool validateInput(const char* name, const std::string& value)
 DEFINE_string(input, "./image.jpg", "Input image file for this test program.");
 DEFINE_validator(input, &validateInput);
 
-// static bool validateLabels(const char* name, const std::string& value) 
-// { 
-//     if (!value.compare ("")) {
-//         LOG_ERROR("You must specify a labels file!");
-//         return false;
-//     }
-
-//     struct stat statbuf;
-//     if (0 == stat(value.c_str(), &statbuf)) {
-//         return true;
-//     }
-
-//     LOG_ERROR("Can't stat labels file: %s", value.c_str());
-//     return false;
-// }
-
-// DEFINE_string(labels, "./labels.txt", "Labels file for the resnet18s model.");
-// DEFINE_validator(labels, &validateLabels);
 
 static bool validateConfigPath(const char* name, const std::string& value) 
 { 
@@ -140,17 +115,6 @@ static bool parse_args(resnet18::ImageClassificationConfig& config, const std::s
                 config.runtime = device2runtime(r);
             }
 
-            if (json_object_has_member(object, "labels")) {
-                int l = json_object_get_int_member(object, "labels");
-                LOG_INFO("labels: {}", l);
-                config.labels = l;
-            }
-
-            if (json_object_has_member(object, "grids")) {
-                int g = json_object_get_int_member(object, "grids");
-                LOG_INFO("grids: {}", g);
-                config.grids = g;
-            }
 
             if (json_object_get_array_member(object, "input-layers")) {
                 JsonArray* a = json_object_get_array_member(object, "input-layers");
@@ -200,12 +164,7 @@ int main(int argc, char* argv[])
 {
     google::ParseCommandLineFlags(&argc, &argv, true);
 
-    // std::vector<std::string> labels;
-    // std::ifstream in(FLAGS_labels);
-    // std::string line;
-    // while (getline(in, line)){
-    //     labels.push_back(line);
-    // }
+
 
     resnet18::ImageClassificationConfig config;
     parse_args(config, FLAGS_config_path);
@@ -217,7 +176,7 @@ int main(int argc, char* argv[])
         
         alg->Init(config);
         
-        alg->SetScoreThreshold(FLAGS_confidence, FLAGS_nms);
+    
         
         vec_alg.push_back(alg);
     }

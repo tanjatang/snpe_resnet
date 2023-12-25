@@ -1,11 +1,4 @@
-/*
- * @Description: Inference SDK based on SNPE.
- * @version: 1.1
- * @Author: Ricardo Lu<shenglu1202@163.com>
- * @Date: 2022-05-18 09:48:36
- * @LastEditors: Ricardo Lu
- * @LastEditTime: 2023-03-04 07:18:49
- */
+
 
 
 #include "SNPETask.h"

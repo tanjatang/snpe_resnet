@@ -1,11 +1,4 @@
-/*
- * @Description: Implementation of object detection algorithm handler.
- * @version: 2.1
- * @Author: Ricardo Lu<shenglu1202@163.com>
- * @Date: 2022-05-17 20:28:01
- * @LastEditors: Ricardo Lu
- * @LastEditTime: 2023-02-24 15:16:01
- */
+
 
 #include <math.h>
 #include <algorithm>
@@ -31,8 +24,7 @@ bool ImageClassificationImpl::Initialize(const ImageClassificationConfig& config
     m_inputLayers = config.inputLayers;
     m_outputLayers = config.outputLayers;
     m_outputTensors = config.outputTensors;
-    m_labels = config.labels;
-    m_grids = config.grids;
+
 
     m_task->setOutputLayers(m_outputLayers);
 
@@ -107,22 +99,6 @@ bool ImageClassificationImpl::Detect(const cv::Mat& image,
     std::vector<float*> &results)
 {
 
-    // if (m_roi.empty()) {
-        
-    //     if (m_isRegisteredPreProcess) {
-            
-    //         m_preProcess(image);} 
-    //     else {
-    //     PreProcess(image);
-    //     LOG_INFO("set the buffer encoding type----------: {}.");
-    //     }
-    // } else {
-        
-    //     auto roi_image = image(m_roi);
-    //     if (m_isRegisteredPreProcess) m_preProcess(roi_image); 
-    //     else PreProcess(roi_image);
-        
-    // }
 
     int64_t start = GetTimeStamp_ms();
     if (!m_task->execute()) {
