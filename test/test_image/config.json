@@ -1,0 +1,13 @@
+{
+    "model-path":"../model/resnet18.dlc",
+    "runtime":"CPU",
+    "input-layers":[
+        "input"
+    ],
+    "output-layers":[
+        "/fc/Gemm"
+    ],
+    "output-tensors":[
+        "output"
+    ]
+}
