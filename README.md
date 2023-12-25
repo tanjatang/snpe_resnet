@@ -3,7 +3,9 @@
 # build
 
   mkdir build
+  
   cd build
+  
   cmake ..&&make
 
 # RUN the code
